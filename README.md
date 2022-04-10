@@ -22,7 +22,7 @@ window.CustomTurboStreamActions.log = function() {
 }
 ```
 
-Now if you insert a `turbo-stream` into the DOM in will be picked up and processed by your custom action.
+Now if you insert a `turbo-stream` into the DOM it will be picked up and processed by your custom action.
 
 ```html
 <turbo-stream action="log">
