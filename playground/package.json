@@ -1,0 +1,29 @@
+{
+  "name": "cable-streams-playground",
+  "version": "0.1.0",
+  "description": "A playground for Cable Streams",
+  "license": "MIT",
+  "repository": "https://github.com/marcoroth/cable-streams",
+  "dependencies": {
+    "@hotwired/turbo": "^7.1.0",
+    "cable_ready": "5.0.0-pre9",
+    "cable-streams": "link:../"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-modules": "^0.1.4",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.1",
+    "marked": "^4.0.10",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
