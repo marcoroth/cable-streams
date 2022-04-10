@@ -34,7 +34,7 @@ Now if you insert a `turbo-stream` into the DOM it will be picked up and process
 
 ## Register CableReady operations as Turbo Stream Actions
 
-You can register all available CableReady operations as Turbo Stream Actions.
+You can register [all available CableReady operations](https://cableready.stimulusreflex.com/v/v5/reference/operations) as Turbo Stream Actions.
 
 ```js
 CableStreams.registerCableReadyOperations()
