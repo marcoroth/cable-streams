@@ -5,19 +5,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="bundle.js" async></script>
+    <script type="module" src="/index.js"></script>
   </head>
 
   <body id="body">
+    <turbo-stream action="log" target="body" message="hello world"></turbo-stream>
+
     <turbo-stream action="append" target="body">
       <template>
         Append to body
       </template>
     </turbo-stream>
 
-    <turbo-stream action="append2" target="body">
+    <turbo-stream action="customAppend" target="body">
       <template>
-        Append2 to body
+        customAppend to body
       </template>
     </turbo-stream>
 
