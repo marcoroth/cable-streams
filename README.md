@@ -47,7 +47,7 @@ Now if you insert a `<turbo-stream>` element into the DOM it will be picked up a
 ### Example using the regular Web API for HTMLElement
 
 If you don't want to rely on the `<template>` element you can also define regular attributes on the `<turbo-stream>` element. The payload from the example above can be represented as:
-``html
+```html
 <turbo-stream action="log" message="This will be logged"></turbo-stream>
 ```
 
