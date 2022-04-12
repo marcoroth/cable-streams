@@ -17,11 +17,11 @@ export class CableStreams {
   }
 
   get performActionFunction() {
-    const CableStreams = this
+    const _this = this
 
     return function performAction(this: StreamElement) {
       if (this.action) {
-        const actionFunction = CableStreams.actions[this.action]
+        const actionFunction = _this.actions[this.action]
         if (actionFunction) {
           return actionFunction
         }
