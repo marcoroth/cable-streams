@@ -14,7 +14,8 @@
     "start": "cd playground && yarn start",
     "prebuild": "yarn clean",
     "build": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types --jsx react && rollup -c",
-    "dev": "rollup -wc",
+    "watch": "rollup -wc",
+    "dev": "concurrently 'yarn run watch' 'yarn run start'",
     "clean": "rimraf dist",
     "prerelease": "yarn build"
   },
@@ -23,6 +24,7 @@
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@rollup/plugin-typescript": "^8.2.5",
     "cable_ready": ">= 5.0.0-pre9",
+    "concurrently": "^7.1.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.57.0",
     "rollup-plugin-filesize": "^9.1.1",
