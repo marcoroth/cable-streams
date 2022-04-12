@@ -40,9 +40,16 @@ export class CableStreams {
   }
 
   registerCableReadyOperations() {
+    // @ts-ignore
+    if (!window.CableReady) {
+      console.error("[CableStreams] Make sure you have CableReady installed and imported in your application")
+
+      return
+    }
+
     Object.keys(CableReady.operations).forEach((name: any) => {
 
-      // already exists, no need to override
+      // We don't need to override the action if it already exists
       if (!this.actions[name]) {
         window.CustomTurboStreamActions[name] = function() {
           let operations = JSON.parse(this?.templateContent?.textContent || "")
