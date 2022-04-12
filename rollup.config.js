@@ -9,7 +9,10 @@ const banner = `/*\Cable Streams ${version}\n*/`
 export default [
   {
     input: 'src/index.ts',
-    external: ['@hotwired/turbo'],
+    external: [
+      '@hotwired/turbo',
+      'cable_ready'
+    ],
     output: [
       {
         name: 'CableStreams',
@@ -17,7 +20,8 @@ export default [
         format: 'umd',
         banner,
         globals: {
-          '@hotwired/turbo': 'Turbo'
+          '@hotwired/turbo': 'Turbo',
+          'cable_ready': 'CableReady'
         }
       },
       {
