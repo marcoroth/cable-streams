@@ -12,9 +12,25 @@ export class CableStreams {
 
   get actions(): TurboStreamActions {
     return {
-      ...window.TurboStreamActions,
-      ...window.CustomTurboStreamActions
+      ...this.defaultActions,
+      ...this.customActions
     }
+  }
+
+  get defaultActions(): TurboStreamActions {
+    if (!window.TurboStreamActions)  {
+      window.TurboStreamActions = StreamActions
+    }
+
+    return window.TurboStreamActions
+  }
+
+  get customActions(): TurboStreamActions {
+    if (!window.CustomTurboStreamActions)  {
+      window.CustomTurboStreamActions = {}
+    }
+
+    return window.CustomTurboStreamActions
   }
 
   get performActionFunction() {
@@ -39,8 +55,6 @@ export class CableStreams {
 
     Object.defineProperty(this.streamElement.prototype, 'performAction', { get: this.performActionFunction })
 
-    window.TurboStreamActions = StreamActions
-    window.CustomTurboStreamActions = {}
     window.CableStreams = this
   }
 
@@ -56,7 +70,7 @@ export class CableStreams {
 
       // We don't need to override the action if it already exists
       if (!this.actions[name]) {
-        window.CustomTurboStreamActions[name] = function() {
+        this.customActions[name] = function() {
           let operations = JSON.parse(this?.templateContent?.textContent || "")
 
           if (!Array.isArray(operations)) {

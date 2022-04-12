@@ -9,28 +9,37 @@ yarn add cable-streams
 ```
 
 ```js
+import * as Turbo from '@hotwired/turbo'
+import CableReady from 'cable_ready'
 import CableStreams from 'cable-streams'
 ```
 
 ## Adding Custom Turbo Stream Actions
 
-You can define your own Turbo Stream actions on the `window.CustomTurboStreamActions` object.
+You can define your own Turbo Stream actions on the `CableStreams.customActions` object.
 
 ```js
-window.CustomTurboStreamActions.log = function() {
+// IMPORTANT: make sure you are explicitly using the `function` keyword for defining your custom action in order to keep the right scope!
+
+CableStreams.customActions.log = function() {
   console.log(this.templateContent)
 }
 ```
 
-Now if you insert a `turbo-stream` into the DOM it will be picked up and processed by your custom action.
+Now if you insert a `<turbo-stream>` element into the DOM it will be picked up and processed by your custom action.
 
 ```html
-<turbo-stream action="log">
+<turbo-stream action="log" target="body">
   <template>
     This will be logged
   </template>
 </turbo-stream>
 ```
+
+Inside your custom action function you can assess the `targetElements` via `this.targetElements` which get determined by the `[target]` attribute on the `<turbo-stream>` element.
+
+You can also access the content of the content of the `<template>` element within the `<turbo-stream>` via `this.templateContent`.
+
 
 ## Register CableReady operations as Turbo Stream Actions
 
@@ -104,7 +113,3 @@ Which renders to:
   </template>
 </turbo-stream>
 ```
-
-
-
-

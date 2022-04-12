@@ -13,6 +13,4 @@ const cableStreams = new CableStreams()
 cableStreams.start()
 cableStreams.registerCableReadyOperations() // TODO: figure out if this should be enabled by default
 
-export {
-  cableStreams as CableStreams
-}
+export default cableStreams
