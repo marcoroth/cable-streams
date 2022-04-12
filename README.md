@@ -1,6 +1,6 @@
 # Cable Streams
 
-Extend Turbo Stream with Custom Turbo Stream Actions or CableReady operations.
+Extend Turbo Streams with Custom Turbo Stream Actions and CableReady operations.
 
 ## Getting Started
 
