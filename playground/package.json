@@ -20,7 +20,6 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.1.0",
     "css-loader": "^5.0.1",
-    "marked": "^4.0.10",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",

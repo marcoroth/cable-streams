@@ -11,12 +11,6 @@
     "outDir": "dist",
     "baseUrl": ".",
     "noEmit": false,
-    "declaration": false,
-    "jsx": "react",
-    "jsxFactory": "h",
-    "typeRoots": [
-      "./types",
-      "./node_modules/@types"
-    ]
+    "declaration": false
   }
 }
