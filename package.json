@@ -1,6 +1,6 @@
 {
   "name": "cable-streams",
-  "version": "0.1.0-beta1",
+  "version": "0.1.0-beta2",
   "description": "Extend Turbo Stream with Custom Turbo Stream Actions or CableReady operations",
   "main": "dist/index.js",
   "module": "dist/index.js",
