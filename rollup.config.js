@@ -1,10 +1,18 @@
 import resolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import filesize from 'rollup-plugin-filesize'
+import { terser } from 'rollup-plugin-terser'
 
 import { version } from './package.json'
 const year = new Date().getFullYear()
 const banner = `/*\Cable Streams ${version}\n*/`
+
+const minify = () => {
+  return terser({
+    mangle: true,
+    compress: true
+  })
+}
 
 export default [
   {
@@ -33,7 +41,8 @@ export default [
     plugins: [
       resolve(),
       typescript(),
-      filesize()
+      filesize(),
+      minify()
     ],
     watch: {
       include: 'src/**'
