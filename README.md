@@ -74,3 +74,37 @@ It also works with multiple operations, passed in as an array.
   </template>
 </turbo-stream>
 ```
+
+## Usage with Rails
+
+There is a [Rails companion gem](https://github.com/marcoroth/cable-streams-rails) which ships view helpers for all CableReady operations. All options are identical to [the regular CableReady operations](https://cableready.stimulusreflex.com/v/v5/reference/operations).
+
+
+### Installation
+
+```bash
+bundle add cable_streams
+```
+
+### Example
+
+Here's the same example from above using the `console_log` operation:
+
+```html+erb
+<%= turbo_stream.console_log(message: "hello world") %>
+```
+
+Which renders to:
+```html
+<turbo-stream action="consoleLog" target="body">
+  <template>
+    [
+      { "message": "hello world", "operation": "consoleLog" }
+    ]
+  </template>
+</turbo-stream>
+```
+
+
+
+
