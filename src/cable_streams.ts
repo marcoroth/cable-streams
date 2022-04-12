@@ -1,4 +1,5 @@
 import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_element"
+import { StreamActions } from "./stream_actions"
 import { TurboStreamActions } from "./types"
 
 // @ts-ignore
@@ -37,6 +38,10 @@ export class CableStreams {
     delete this.streamElement.prototype.performAction
 
     Object.defineProperty(this.streamElement.prototype, 'performAction', { get: this.performActionFunction })
+
+    window.TurboStreamActions = StreamActions
+    window.CustomTurboStreamActions = {}
+    window.CableStreams = this
   }
 
   registerCableReadyOperations() {

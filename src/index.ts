@@ -1,5 +1,4 @@
 import { CableStreams } from "./cable_streams"
-import { StreamActions } from "./stream_actions"
 import { TurboStreamActions } from "./types"
 
 declare global {
@@ -10,11 +9,10 @@ declare global {
   }
 }
 
-window.TurboStreamActions = StreamActions
-window.CustomTurboStreamActions = {}
+const cableStreams = new CableStreams()
+cableStreams.start()
+cableStreams.registerCableReadyOperations() // TODO: figure out if this should be enabled by default
 
-window.CableStreams = new CableStreams()
-window.CableStreams.start()
-
-// TODO: figure out if this should be enabled by default
-window.CableStreams.registerCableReadyOperations()
+export {
+  cableStreams as CableStreams
+}
