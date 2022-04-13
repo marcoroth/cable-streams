@@ -27,7 +27,8 @@ You can also access the content of the `<template>` element within the `<turbo-s
 ### Example using the `<template>` element
 
 ```js
-// IMPORTANT: make sure you are explicitly using the `function` keyword for defining your custom action in order to keep the right scope!
+// IMPORTANT: make sure you are explicitly using the `function` keyword 
+// for defining your custom action in order to keep the right scope!
 
 CableStreams.customActions.log = function() {
   console.log(this.templateContent)
