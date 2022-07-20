@@ -1,10 +1,7 @@
 import { CableStreams } from "./cable_streams"
-import { TurboStreamActions } from "./types"
 
 declare global {
   interface Window {
-    TurboStreamActions: TurboStreamActions
-    CustomTurboStreamActions: TurboStreamActions
     CableStreams: CableStreams
   }
 }

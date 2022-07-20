@@ -1,5 +1,4 @@
-import { StreamElement } from "@hotwired/turbo/dist/types/elements/stream_element"
-import { StreamActions } from "./stream_actions"
+import { StreamActions } from "@hotwired/turbo"
 import { TurboStreamActions } from "./types"
 
 // @ts-ignore
@@ -18,43 +17,14 @@ export class CableStreams {
   }
 
   get defaultActions(): TurboStreamActions {
-    if (!window.TurboStreamActions)  {
-      window.TurboStreamActions = StreamActions
-    }
-
-    return window.TurboStreamActions
+    return StreamActions
   }
 
   get customActions(): TurboStreamActions {
-    if (!window.CustomTurboStreamActions)  {
-      window.CustomTurboStreamActions = {}
-    }
-
-    return window.CustomTurboStreamActions
-  }
-
-  get performActionFunction() {
-    const _this = this
-
-    return function performAction(this: StreamElement) {
-      if (this.action) {
-        const actionFunction = _this.actions[this.action]
-        if (actionFunction) {
-          return actionFunction
-        }
-        // @ts-ignore
-        this.raise("unknown action")
-      }
-      // @ts-ignore
-      this.raise("action attribute is missing")
-    }
+    return StreamActions
   }
 
   start() {
-    delete this.streamElement.prototype.performAction
-
-    Object.defineProperty(this.streamElement.prototype, 'performAction', { get: this.performActionFunction })
-
     window.CableStreams = this
   }
 
@@ -67,10 +37,9 @@ export class CableStreams {
     }
 
     Object.keys(CableReady.operations).forEach((name: any) => {
-
       // We don't need to override the action if it already exists
-      if (!this.actions[name]) {
-        this.customActions[name] = function() {
+      if (!StreamActions[name]) {
+        StreamActions[name] = function() {
           let operations = JSON.parse(this?.templateContent?.textContent || "")
 
           if (!Array.isArray(operations)) {
@@ -87,6 +56,8 @@ export class CableStreams {
 
           CableReady.perform(operations)
         }
+      } else {
+        console.log(`[CableStreams] didn't register "${name}" since the action already exists`)
       }
     })
   }
