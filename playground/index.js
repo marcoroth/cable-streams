@@ -7,10 +7,10 @@ CableStreams.customActions.customAppend = function() {
   this.targetElements.forEach(e => e.append(this.templateContent))
 }
 
-CableStreams.customActions.myCustomAction = function() {
+Turbo.StreamActions.myCustomAction = function() {
   console.log("Hello from my custom turbo stream action")
 }
 
-CableStreams.customActions.log = function() {
+Turbo.StreamActions.log = function() {
   console.log(this.getAttribute("message"))
 }

@@ -14,20 +14,22 @@ import CableReady from 'cable_ready'
 import CableStreams from 'cable-streams'
 ```
 
-## Adding Custom Turbo Stream Actions
+## Adding Custom Turbo Stream Actions (Deprecated)
+
+> Note: Custom Turbo Stream Actions via CableStreams are deprecated. Instead register your Custom Turbo Stream Actions directly on `Turbo.StreamActions`.
 
 You can define your own Turbo Stream actions on the `CableStreams.customActions` object.
 
 Within the scope of your custom action function `this` always points to the `<turbo-stream>` element.
 
-If your action is targeting specifc elements in the DOM you can access them via `this.targetElements`. The `<turbo-stream>` element lookups the right elements using the provided content of the `[target]` attribute on the `<turbo-stream>` element.
+If your action is targeting specific elements in the DOM you can access them via `this.targetElements`. The `<turbo-stream>` element lookups the right elements using the provided content of the `[target]` attribute on the `<turbo-stream>` element.
 
 You can also access the content of the `<template>` element within the `<turbo-stream>` via `this.templateContent`.
 
 ### Example using the `<template>` element
 
 ```js
-// IMPORTANT: make sure you are explicitly using the `function` keyword 
+// IMPORTANT: make sure you are explicitly using the `function` keyword
 // for defining your custom action in order to keep the right scope!
 
 CableStreams.customActions.log = function() {
