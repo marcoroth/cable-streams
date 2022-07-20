@@ -20,7 +20,7 @@
     "prerelease": "yarn build"
   },
   "devDependencies": {
-    "@hotwired/turbo": "^7.1.0",
+    "@hotwired/turbo": "^7.2.0-beta.1",
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@rollup/plugin-typescript": "^8.2.5",
     "cable_ready": ">= 5.0.0-pre9",
@@ -34,7 +34,7 @@
     "typescript": "^3.9.7"
   },
   "peerDependencies": {
-    "@hotwired/turbo": "^7.1.0",
+    "@hotwired/turbo": ">= 7.2.0-beta.1",
     "cable_ready": ">= 5.0.0-pre9"
   }
 }
