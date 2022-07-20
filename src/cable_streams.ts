@@ -10,6 +10,8 @@ export class CableStreams {
   }
 
   get actions(): TurboStreamActions {
+    console.warn("[CableStreams] `CableStreams.actions` is deprecated. Please access all available actions directly on `Turbo.StreamActions` instead.")
+
     return {
       ...this.defaultActions,
       ...this.customActions
@@ -17,10 +19,12 @@ export class CableStreams {
   }
 
   get defaultActions(): TurboStreamActions {
+    console.warn("[CableStreams] `CableStreams.actions` is deprecated. Please access all available actions directly on `Turbo.StreamActions` instead.")
     return StreamActions
   }
 
   get customActions(): TurboStreamActions {
+    console.warn("[CableStreams] `CableStreams.customActions` is deprecated. Please register your custom actions directly on `Turbo.StreamActions`.")
     return StreamActions
   }
 
