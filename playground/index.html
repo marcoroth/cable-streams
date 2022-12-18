@@ -9,7 +9,23 @@
   </head>
 
   <body id="body">
+
+    <div class="message">Previous message</div>
+    <div class="message">Previous message</div>
+    <div class="message">Previous message</div>
+    <div class="message">Previous message</div>
+    <div class="message">Previous message</div>
+    <div class="message">Previous message</div>
+
     <turbo-stream action="log" target="body" message="hello world"></turbo-stream>
+
+    <turbo-stream action="replace" targets=".message">
+      <template>
+        <div class="message">
+          New message
+        </div>
+      </template>
+    </turbo-stream>
 
     <turbo-stream action="append" target="body">
       <template>
